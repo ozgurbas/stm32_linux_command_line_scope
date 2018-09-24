@@ -1,1 +1,0 @@
-# stm32_linux_command_line_scope
