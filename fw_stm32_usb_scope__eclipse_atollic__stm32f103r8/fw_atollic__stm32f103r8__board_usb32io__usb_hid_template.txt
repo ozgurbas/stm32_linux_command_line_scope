@@ -1,0 +1,87 @@
+Configuration	fw_atollic__stm32f103r8__board_usb32io__usb_hid_template
+STM32CubeMX 	4.25.1
+Date	09/24/2018
+MCU	STM32F103R8Tx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN10	ADC1_IN10	PC0
+ADC1	IN11	ADC1_IN11	PC1
+ADC2	IN12	ADC2_IN12	PC2
+ADC2	IN13	ADC2_IN13	PC3
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PD0-OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PD1-OSC_OUT
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM3	Internal Clock	TIM3_VS_ClockSourceINT	VP_TIM3_VS_ClockSourceINT
+TIM4	Output Compare No Output	TIM4_VS_no_output4	VP_TIM4_VS_no_output4
+USB	Device (FS)	USB_DM	PA11
+USB	Device (FS)	USB_DP	PA12
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+2	PC13-TAMPER-RTC	GPIO_Input	IDC_A_5
+3	PC14-OSC32_IN	GPIO_Input	IDC_A_8
+4	PC15-OSC32_OUT	GPIO_Input	IDC_A_7
+5	PD0-OSC_IN	RCC_OSC_IN	
+6	PD1-OSC_OUT	RCC_OSC_OUT	
+8	PC0	ADC1_IN10	IDC_B_2__ADC1_IN10
+9	PC1	ADC1_IN11	IDC_B_1__ADC1_IN11
+10	PC2	ADC2_IN12	IDC_B_4__ADC2_IN12
+11	PC3	ADC2_IN13	IDC_B_3__ADC2_IN13
+14	PA0-WKUP	GPIO_Input	IDC_B_6
+15	PA1	GPIO_Input	IDC_B_5
+20	PA4	GPIO_Input	IDC_C_7
+21	PA5	GPIO_Input	IDC_C_8
+22	PA6	GPIO_Input	IDC_C_5
+23	PA7	GPIO_Input	IDC_C_6
+24	PC4	GPIO_Input	IDC_B_8
+25	PC5	GPIO_Input	IDC_B_7
+26	PB0	GPIO_Input	IDC_C_3
+27	PB1	GPIO_Input	IDC_C_4
+28	PB2	GPIO_Input	IDC_C_1
+37	PC6	GPIO_Input	IDC_C_2
+44	PA11	USB_DM	
+45	PA12	USB_DP	
+46	PA13	SYS_JTMS-SWDIO	
+49	PA14	SYS_JTCK-SWCLK	
+50	PA15	GPIO_Output	OUT_ex_JTDI__LED_RED
+51	PC10	GPIO_Input	IDC_A_2
+52	PC11	GPIO_Input	IDC_A_1
+53	PC12	GPIO_Input	IDC_A_4
+54	PD2	GPIO_Output	OUT__USB_DISCONNECT
+55	PB3	GPIO_Output	OUT_ex_JTDO__LED_BLUE
+56	PB4	GPIO_Output	OUT_exNJTRST__LED_GREEN
+57	PB5	GPIO_Input	IDC_A_3
+58	PB6	GPIO_Input	IDC_A_6
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : fw_atollic__stm32f103r8__board_usb32io__usb_hid_template
+Project Folder : /run/media/ozgurbas/ws_a/ws_atollic_stm32_B/fw_stm32_usb_scope__eclipse_atollic__stm32f103r8
+Toolchain / IDE : TrueSTUDIO
+Firmware Package Name and Version : STM32Cube FW_F1 V1.6.1
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
+Backup previously generated files when re-generating : Yes
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : Balanced Size/Speed
+
+
+
+
+
+
