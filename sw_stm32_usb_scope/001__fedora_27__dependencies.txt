@@ -1,0 +1,4 @@
+
+
+$ sudo dnf install libusb libusb-devel
+$ sudo dnf install libhid libhid-devel libhid-python

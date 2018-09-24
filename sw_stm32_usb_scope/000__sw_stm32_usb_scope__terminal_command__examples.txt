@@ -1,0 +1,178 @@
+
+000__usb_hid_scope__terminal_command__examples.txt
+
+
+in debug arguments add "direct_w_1_output 200 100 120 200 300 400 160 240 340 440"
+
+
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+
+pc triggered unconditional sample and view:
+P1= direct
+P2= 100 : sample interval in micro sec
+$ ./stm32_usb_scope direct 100
+
+direct 9.5sec (500us sample interval x 1900 sample)
+$ ./stm32_usb_scope direct 5000
+
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+
+
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+
+pc triggered unconditional sample and view with output triggering: (12 parameters)
+$ ./stm32_usb_scope direct_w_4_outputs    100 2500 500 1000 1500 2000 600 1100 1600 2100
+                                       |   |   |    |    |    |   |    |   |    |________> 	out4 off time ms
+                                       |   |   |    |    |    |   |    |   |_____________> 	out3 off time ms
+                                       |   |   |    |    |    |   |    |_________________> 	out2 off time ms
+                                       |   |   |    |    |    |   |______________________> 	out1 off time ms	
+                                       |   |   |    |    |    |__________________________> 	out4 on  time ms	
+                                       |   |   |    |    |_______________________________> 	out3 on  time ms	
+                                       |   |   |    |____________________________________> 	out2 on  time ms	
+                                       |   |   |_________________________________________> 	out1 on  time ms	
+                                       |   |_____________________________________________> 	record start time ms	
+                                       |_________________________________________________> 	sample interval us
+                                       
+                                       
+190 milisec record sample, starts at 2.5 sn                                       
+$ ./stm32_usb_scope direct_w_4_output    100 2500 500 1000 1500 2000 600 1100 1600 2100
+
+1.9sec record sample, starts at 0.5 sn                                       
+$ ./stm32_usb_scope direct_w_4_output    1000 500 500 1000 1500 2000 600 1100 1600 2100
+
+
+triggers only output 1 with 4 time values!!!
+$ ./stm32_usb_scope direct_w_1_output 100 2500 500 1000 1500 2000 600 1100 1600 2100
+$ ./stm32_usb_scope direct_w_1_output 200 100 120 200 300 400 160 240 340 440
+$ ./stm32_usb_scope direct_w_1_output 200 100 120 200 300 400 160 240 340 440
+
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+
+
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+digital input triggered:
+P1= direct
+P2= 100 : sample interval in micro sec
+P3= 10  : maximum trigger waiting time, timeout in sec 1 to 10 sec
+$ ./stm32_usb_scope waiting_d_in_1_rise 100 10
+$ ./stm32_usb_scope waiting_d_in_1_fall 100 10
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+
+
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+command line test interface:
+$ ./stm32_usb_scope
+
+	"qt\n"	>>> quit.
+	"echo\n"	>>> sends and receives 3 test packages.
+	"out_bin\n"	>>> records signal data to binary file	creates "data_16bit_x_1900sample_x_4channel.bin" at "/home/ozgurbas/out_bin/", 
+					please manulay create folder "/home/ozgurbas/out_bin/" before using binary io commands.
+	"in_bin\n"	>>> opens signal data from binary file
+	"out_pdf\n"	>>> records signal data to pdf file	>>> NOT READY YET.
+	"draw\n"	>>> redraws data from ram arrays.
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+
+
+SAMPLE TERMINAL OUT FOR ECHO COMMAND:
+	>>> waiting for command: 
+	qt to Exit
+	echo
+	echo test started...
+	txbuf: 69 67 72 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 
+	send: 69 67 72 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 
+	recv: 69 67 72 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 
+	send: 69 67 72 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 
+	recv: 69 67 72 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 
+	send: 69 67 72 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 
+	recv: 69 67 72 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 
+	echo test ended...
+	>>> waiting for command: 
+	qt
+	program will terminate...
+
+
+SAMPLE TERMINAL OUT FOR in_bin and draw commands to view previously recorded binary file:
+
+	$ ./stm32_usb_scope cli
+	device identification of HIDInterface 001/005[0]:
+	  dev_handle:    0x02071c60
+	  device:        0x02074910
+	  location:      001/005
+	  manufacturer:  AAC
+	  product:       STM32_USB32IO_HID
+	  serial number: 00000000001A
+	parse tree of HIDInterface 001/005[0]:
+	qt to Exit
+	>>> waiting for command: 
+	in_bin
+	in_bin started...
+	in_bin ended...
+	>>> waiting for command: 
+	draw
+	draw started...
+	draw ended...
+	>>> waiting for command: 
+	qt
+	program will terminate...
+	
+	$
+	
+	
+
+SAMPLE TERMINAL OUT FOR capture and save to bin file:	
+	$ ./stm32_usb_scope direct_w_1_output 200 100 120 200 300 400 160 240 340 440
+	device identification of HIDInterface 001/005[0]:
+	  dev_handle:    0x017f6fc0
+	  device:        0x017f9f00
+	  location:      001/005
+	  manufacturer:  AAC
+	  product:       STM32_USB32IO_HID
+	  serial number: 00000000001A
+	parse tree of HIDInterface 001/005[0]:
+	record will be started...
+	adc record data transfered from mcu to pc!!!
+	qt to Exit
+	>>> waiting for command: 
+	out_bin
+	out_bin started...
+	out_bin ended...
+	>>> waiting for command: 
+	qt
+	program will terminate...
+	
+	
+SAMPLE TERMINAL OUT FOR input trigger command:	
+	$ ./stm32_usb_scope waiting_d_in_1_fall 100 10
+	device identification of HIDInterface 001/005[0]:                                                                                                                                                             
+	  dev_handle:    0x022a3260                                                                                                                                                                                   
+	  device:        0x022a7c90                                                                                                                                                                                   
+	  location:      001/005                                                                                                                                                                                      
+	  manufacturer:  AAC                                                                                                                                                                                          
+	  product:       STM32_USB32IO_HID                                                                                                                                                                            
+	  serial number: 00000000001A                                                                                                                                                                                 
+	parse tree of HIDInterface 001/005[0]:                                                                                                                                                                        
+	record will be started...                                                                                                                                                                                     
+	waiting for trigger input edge. down counter=9                                                                                                                                                                
+	waiting for trigger input edge. down counter=8                                                                                                                                                                
+	waiting for trigger input edge. down counter=7                                                                                                                                                                
+	waiting for trigger input edge. down counter=6                                                                                                                                                                
+	waiting for trigger input edge. down counter=5                                                                                                                                                                
+	trigger received, record started.                                                                                                                                                                             
+	adc record data transfered from mcu to pc!!!                                                                                                                                                                  
+	qt to Exit                                                                                                                                                                                                    
+	>>> waiting for command:                                                                                                                                                                                      
+	qt                                                                                                                                                                                                            
+	program will terminate...                                                                                                                                                                                     
+	                                                                                                                                                                                                              
+	$ 
+
+
+
+
+
+
+

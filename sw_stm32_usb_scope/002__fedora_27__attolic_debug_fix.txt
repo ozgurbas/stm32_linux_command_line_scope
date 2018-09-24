@@ -1,0 +1,11 @@
+
+to debug project, attolics gdb file must be replaced with original arm supplied file.
+otherwise "lib32ncurses5" will be problem.
+
+$ su -
+# mv /home/ozgurbas/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gdb_copy /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.0.1/ARMTools/bin/arm-atollic-eabi-gdb
+overwrite? yes
+
+
+to use cubemx on attolic do not open eclipse with GTK3
+$ cd /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.0.1/ide && export SWT_GTK3=0 && ./TrueSTUDIO
